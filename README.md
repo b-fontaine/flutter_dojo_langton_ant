@@ -80,6 +80,48 @@ Le tableau qui suit présente la position de la fourmi et l'état de la grille s
 | 18        | ![état 17](./ant_movements/image17.png)    | ![état 18](./ant_movements/image18.png) |
 | 19        | ![état 18](./ant_movements/image18.png)    | ![état 19](./ant_movements/image19.png) |
 
+## Comment utiliser ce repository
+
+Ce repository est un socle de travail pour explorer les concepts de BDD, Clean Architecture et State Management dans le
+cadre d'une application Flutter. Il est conçu pour être utilisé de manière interactive, en modifiant le code et en
+exécutant les tests pour voir les résultats.
+
+Il est structuré de la manière suivante :
+```
+front/
+└── langton_flutter/ # Application Flutter
+server/
+└── langton_rust/    # API REST en Rust
+```
+
+### Tester l'API REST
+
+```bash
+# Démarrer le service avec Docker Compose
+docker-compose up -d
+
+# Tester l'API
+curl -X POST http://localhost:3000/api/step \
+  -H "Content-Type: application/json" \
+  -d '{"orientation":"north","position":{"x":0,"y":0},"cell_color":"white"}'
+
+# Arrêter le service
+docker-compose down
+```
+
+### Tester l'application Flutter
+
+Pour tester l'application Flutter, vous pouvez lancer le serveur et l'application Flutter avec Docker Compose :
+```bash
+docker-compose up -d
+```
+
+L'application sera accessible sur [http://localhost](http://localhost)
+
+Il est à noter que l'application Flutter est en mode "web", ce qui permet de la tester sur un navigateur.
+Elle est aussi lancée en mode debug, ce qui permet de profiter des outils de développement Flutter (Hot reload,
+observatory, etc.)
+
 # 1. BDD Flutter et socle d’architecture
 
 ## 1.1 BDD, Clean & State Management

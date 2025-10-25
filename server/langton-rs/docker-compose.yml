@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   langton-api:
     build:
@@ -11,4 +9,3 @@ services:
     restart: unless-stopped
     environment:
       - RUST_LOG=info
-
