@@ -7,10 +7,15 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:langton_ant/app.dart';
+import 'package:langton_ant/core/di/injection.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
+    TestWidgetsFlutterBinding.ensureInitialized();
+    getIt.allowReassignment = true;
+    await getIt.reset();
+    configureDependencies();
     await tester.pumpWidget(const App());
     expect(find.text('Fourmi de Langton'), findsOneWidget);
   });

@@ -1,4 +1,4 @@
-import 'package:langton_ant/presentation/grid/ant.dart';
+import 'package:langton_ant/domain/entities/ant.dart';
 import 'package:flutter/material.dart';
 
 Feature: Initial State

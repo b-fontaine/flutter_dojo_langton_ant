@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:langton_ant/presentation/grid/ant_grid.dart';
-
-final gridKey = GlobalKey<AntGridState>();
+import 'package:langton_ant/presentation/grid/view/ant_grid_component.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -42,7 +40,7 @@ class GridBox extends StatelessWidget {
     return SizedBox(
       height: size,
       width: size,
-      child: Column(children: [AntGrid(key: gridKey)]),
+      child: Column(children: [AntGridComponent()]),
     );
   }
 }

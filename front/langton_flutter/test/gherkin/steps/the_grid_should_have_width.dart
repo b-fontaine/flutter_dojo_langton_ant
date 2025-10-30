@@ -3,5 +3,5 @@ import 'package:langton_ant/app.dart';
 
 /// Usage: the grid should have <size> width
 Future<void> theGridShouldHaveWidth(WidgetTester tester, double size) async {
-  expect(tester.getSize(find.byKey(gridKey)).width, size);
+  expect(tester.getSize(find.byType(GridBox)).width, size);
 }
