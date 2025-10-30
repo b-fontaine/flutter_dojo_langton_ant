@@ -1,8 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:langton_ant/app.dart';
-import 'package:langton_ant/presentation/grid/ant.dart';
+import 'package:langton_ant/domain/entities/ant.dart';
+import 'package:langton_ant/presentation/ant/ant_component.dart';
 
 /// Usage: the ant should be facing {Orientation.north}
 Future<void> theAntShouldBeFacing(WidgetTester tester, AntOrientation o) async {
-  expect(gridKey.currentState?.ant.orientation ?? AntOrientation.south, o);
+  final ant = find.byType(AntComponent);
+  final AntComponentState antState = tester.state(ant);
+
+  expect(antState.ant.orientation, o);
 }

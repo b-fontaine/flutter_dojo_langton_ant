@@ -3,5 +3,5 @@ import 'package:langton_ant/app.dart';
 
 /// Usage: the grid should have {21} columns
 Future<void> theGridShouldHaveColumns(WidgetTester tester, int columns) async {
-  expect(gridKey.currentState?.columns ?? 0, columns);
+  expect(gridKey.currentState?.grid.rows.first.cells.length ?? 0, columns);
 }

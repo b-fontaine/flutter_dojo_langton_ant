@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:langton_ant/presentation/grid/ant_widget.dart';
+import 'package:langton_ant/domain/entities/grid.dart';
+import 'package:langton_ant/presentation/ant/ant_component.dart';
 
-import 'ant.dart';
 import 'cell.dart';
 
 class AntGrid extends StatefulWidget {
@@ -11,39 +11,59 @@ class AntGrid extends StatefulWidget {
   State<AntGrid> createState() => AntGridState();
 }
 
-class AntGridState extends State<AntGrid> {
-  final int columns = 21;
-  final int rows = 21;
-  final List<List<bool>> grid = List.generate(
+Grid initialGrid() => Grid(
+  rows: List.generate(
     21,
-    (index) => List.filled(21, true),
-  );
-  final Ant ant = const Ant(x: 10, y: 10);
+    (index) => GridRow(
+      cells: List.generate(21, (index) => GridCell(color: GridCellColor.white)),
+    ),
+  ),
+);
+
+class AntGridState extends State<AntGrid> {
+  Grid grid = initialGrid();
+  var antPosition = (10, 10);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void antMove(int x, int y) {
+    setState(() {
+      antPosition = (x, y);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
-        children: List.generate(
-          rows,
-          (xi) => Expanded(
-            child: Row(
-              children: List.generate(
-                columns,
-                (yi) => Expanded(
-                  child: Cell(
-                    white: grid[xi][yi],
-                    x: xi,
-                    y: yi,
-                    child: (xi == ant.x && yi == ant.y)
-                        ? ant.build(context)
-                        : null,
-                  ),
+        children: grid.rows
+            .map(
+              (row) => Expanded(
+                child: Row(
+                  children: row.cells
+                      .map(
+                        (cell) => Expanded(
+                          child: Cell(
+                            cell: cell,
+                            child:
+                                ((
+                                      row.cells.indexOf(cell),
+                                      grid.rows.indexOf(row),
+                                    ) ==
+                                    antPosition)
+                                ? AntComponent()
+                                : null,
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
-            ),
-          ),
-        ),
+            )
+            .toList(),
       ),
     );
   }

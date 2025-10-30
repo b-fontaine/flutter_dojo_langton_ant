@@ -7,6 +7,5 @@ Future<void> theAntShouldBeAtTheCenterOfTheGrid(
   int x,
   int y,
 ) async {
-  expect(gridKey.currentState?.ant.x ?? 0, x);
-  expect(gridKey.currentState?.ant.y ?? 0, y);
+  expect(gridKey.currentState?.antPosition ?? (0, 0), (x, y));
 }

@@ -1,18 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-import 'package:langton_ant/presentation/grid/ant.dart';
-import 'package:flutter/material.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:langton_ant/domain/entities/ant.dart';
 
-import './../steps/the_app_is_running.dart';
-import './../steps/the_grid_should_have_columns.dart';
-import './../steps/the_grid_should_have_rows.dart';
 import './../steps/all_cells_should_be_white.dart';
 import './../steps/the_ant_should_be_at_the_center_of_the_grid.dart';
 import './../steps/the_ant_should_be_facing.dart';
+import './../steps/the_app_is_running.dart';
+import './../steps/the_grid_should_have_columns.dart';
+import './../steps/the_grid_should_have_rows.dart';
 
 void main() {
   group('''Initial State''', () {
