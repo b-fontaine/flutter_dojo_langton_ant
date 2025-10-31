@@ -6,10 +6,10 @@ import 'package:rxdart/rxdart.dart';
 import '../entities/grid.dart';
 
 @singleton
-class GetGrid {
+class StreamGrid {
   late final Stream<Grid> _stream;
   final StreamController<Grid> _controller = StreamController<Grid>();
-  GetGrid() {
+  StreamGrid() {
     final grid = Grid(
       rows: List.generate(
         21,
@@ -26,4 +26,8 @@ class GetGrid {
   }
 
   Stream<Grid> get stream => _stream;
+
+  void call(Grid grid) {
+    _controller.add(grid);
+  }
 }

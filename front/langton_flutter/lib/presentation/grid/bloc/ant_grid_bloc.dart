@@ -18,25 +18,9 @@ class AntGridBloc extends Bloc<AntGridEvent, AntGridState> {
     AntGridInitiate event,
     Emitter<AntGridState> emit,
   ) async {
-    /*emit(
-      AntGridLoaded(
-        Grid(
-          rows: List.generate(
-            21,
-            (index) => GridRow(
-              cells: List.generate(
-                21,
-                (index) => GridCell(color: GridCellColor.white),
-              ),
-            ),
-          ),
-        ),
-        (10, 10),
-      ),
-    );*/
     await emit.onEach(
       _interactor.stream,
-      onData: (grid) => emit(AntGridLoaded(grid, (10, 10))),
+      onData: (data) => emit(AntGridLoaded(data.$1, data.$2.position)),
     );
   }
 }

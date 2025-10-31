@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:langton_ant/presentation/grid/view/ant_grid_component.dart';
 
+import 'presentation/move/view/move_component.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -9,6 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fourmi de Langton',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       ),
@@ -21,6 +24,7 @@ class App extends StatelessWidget {
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: const Text('Fourmi de Langton'),
+          actions: [MoveComponent()],
         ),
         body: Center(child: GridBox()),
       ),

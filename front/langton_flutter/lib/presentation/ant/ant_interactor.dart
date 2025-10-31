@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:langton_ant/domain/usecases/get_ant.dart';
+import 'package:langton_ant/domain/usecases/stream_ant.dart';
 
 import '../../domain/entities/ant.dart';
 
 @singleton
 class AntInteractor {
-  final GetAnt getAnt;
+  final StreamAnt getAnt;
 
   AntInteractor(this.getAnt);
 

@@ -1,0 +1,27 @@
+{
+  "GET": {
+    "statusCode": 404,
+    "data": {
+      "error": "Not Found"
+    }
+  },
+  "POST": {
+    "statusCode": 200,
+    "data": {
+      "ant": {
+        "orientation": "east",
+        "position": {
+          "x": 11,
+          "y": 10
+        }
+      },
+      "cell": {
+        "color": "black",
+        "position": {
+          "x": 10,
+          "y": 10
+        }
+      }
+    }
+  }
+}

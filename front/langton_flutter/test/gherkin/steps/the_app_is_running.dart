@@ -6,7 +6,7 @@ Future<void> theAppIsRunning(WidgetTester tester) async {
   TestWidgetsFlutterBinding.ensureInitialized();
   getIt.allowReassignment = true;
   await getIt.reset();
-  configureDependencies();
+  configureDependencies(environment: 'test');
   await tester.pumpWidget(App());
   await tester.pumpAndSettle();
 }

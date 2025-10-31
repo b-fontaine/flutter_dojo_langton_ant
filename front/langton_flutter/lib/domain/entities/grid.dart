@@ -1,19 +1,20 @@
-class Grid {
-  final List<GridRow> rows;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  const Grid({required this.rows});
+part 'grid.freezed.dart';
+
+@freezed
+abstract class Grid with _$Grid {
+  const factory Grid({required List<GridRow> rows}) = _Grid;
 }
 
-class GridRow {
-  final List<GridCell> cells;
-
-  const GridRow({required this.cells});
+@freezed
+abstract class GridRow with _$GridRow {
+  const factory GridRow({required List<GridCell> cells}) = _GridRow;
 }
 
-class GridCell {
-  final GridCellColor color;
-
-  const GridCell({required this.color});
+@freezed
+abstract class GridCell with _$GridCell {
+  const factory GridCell({required GridCellColor color}) = _GridCell;
 }
 
 enum GridCellColor { white, black }
